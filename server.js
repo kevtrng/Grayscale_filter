@@ -29,7 +29,7 @@ if(req.url == "/upload" && req.method.toLowerCase()==="post"){
         IOhandler.grayScale(photoPath, path.join("grayscaled", "image_greyscaled.png"))
             .then(() => {
                 res.end(`
-                    file has been uploaded!<br>
+                    uploaded! <br>
                     <a href = "/">Go back</a><br>
                 `)
             })
@@ -45,7 +45,7 @@ if (filePath == "./") {
 fs.readFile(filePath, (error, content) => {
     if (error) {
         res.writeHead(500);
-        res.end("Sorry, check with the site admin for error: " + error.code + " ..\n");
+        res.end("There's an error: " + error.code + " ..\n");
     } else {
         res.writeHead(200, { "Content-Type": "text/html" });
         res.write(content, "utf-8");
